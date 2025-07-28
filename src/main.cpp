@@ -17,7 +17,7 @@ void handleRoot() {
 void handleUpdate() {
   HTTPUpload& upload = server.upload();
   if (upload.status == UPLOAD_FILE_START) {
-    Update.begin(UPDATE_SIZE_UNKNOWN);
+    Update.begin(ESP_UPDATE_SIZE_UNKNOWN);
   } else if (upload.status == UPLOAD_FILE_WRITE) {
     Update.write(upload.buf, upload.currentSize);
   } else if (upload.status == UPLOAD_FILE_END) {
