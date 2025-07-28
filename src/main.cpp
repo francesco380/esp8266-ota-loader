@@ -47,7 +47,7 @@ void loop() {
     }
 
     // Inizia OTA
-    if (!Update.begin(UPDATE_SIZE_UNKNOWN)) {
+    if (!Update.begin(512000)) {
       sendResponse(client, 500, "OTA Begin Failed");
       client.stop();
       return;
