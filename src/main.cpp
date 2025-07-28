@@ -3,7 +3,7 @@
 #include <ESP8266WiFi.h>
 #include <Updater.h>
 
-const char* ssid = "FRITZ-SantoI";
+const char* ssid = "FRITZ-Santo";
 const char* pass = "ospiteinvitato";
 WiFiServer server(8266);
 
