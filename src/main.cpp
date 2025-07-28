@@ -12,7 +12,9 @@ ESP8266HTTPUpdateServer httpUpdater;
 void setup() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) delay(100);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(100);
+  }
 
   httpUpdater.setup(&server);
   server.begin();
