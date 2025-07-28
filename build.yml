@@ -1,0 +1,32 @@
+name: Build OTA Loader
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install PlatformIO
+        run: |
+          python -m pip install -U platformio
+
+      - name: Build firmware
+        run: |
+          pio run -e esp01_1m
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: firmware-bin
+          path: .pio/build/esp01_1m/firmware.bin
